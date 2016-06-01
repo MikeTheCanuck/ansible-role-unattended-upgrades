@@ -1,12 +1,14 @@
 # Unattended-Upgrades Role for Ansible
 
-[![Build Status](https://travis-ci.org/jnv/ansible-role-unattended-upgrades.svg?branch=master)](https://travis-ci.org/jnv/ansible-role-unattended-upgrades)
+Install and setup [unattended-upgrades](https://launchpad.net/unattended-upgrades) for Debian (since Wheezy), to periodically install security upgrades.
 
-Install and setup [unattended-upgrades](https://launchpad.net/unattended-upgrades) for Ubuntu and Debian (since Wheezy), to periodically install security upgrades.
+MODIFICATIONS in this fork:
+1. Removed references to Ubuntu (unneeded in our deployment).
+2. Switched debian box to debian/jessie64.
+3. Updated contents of auto-upgrades and unattended-upgrades.j2 with content from https://github.com/MikeTheCanuck/jQuery-infra-update.
+4. Updated name of auto-upgrades script from 20auto-upgrades to 02periodic (per the model found elsewhere).
+5. 
 
-**NOTE:** If you have used version 0.0.1 of the role, you can delete the file `/etc/apt/apt.conf.d/10periodic` as it is not needed anymore. You can use the following one-shot command:
-
-    ansible -m file -a "state=absent path=/etc/apt/apt.conf.d/10periodic" <host-pattern>
 
 ## Requirements
 
@@ -14,7 +16,7 @@ The role uses [apt module](http://docs.ansible.com/apt_repository_module.html) w
 
 If you set `unattended_mail` to an e-mail address, make sure `mailx` command is available and your system is able to send e-mails.
 
-The role requires unattended-upgrades version 0.70 and newer, which is available since Debian Wheezy and Ubuntu 12.04 respectively. This is due to [Origins Patterns](#origins-patterns) usage; if this is not available on your system, you may use [the first version of the role](https://github.com/jnv/ansible-role-unattended-upgrades/tree/v0.1).
+The role requires unattended-upgrades version 0.70 and newer, which is available since Debian Wheezy. This is due to [Origins Patterns](#origins-patterns) usage; if this is not available on your system, you may use [the first version of the role](https://github.com/jnv/ansible-role-unattended-upgrades/tree/v0.1).
 
 ### Automatic Reboot
 

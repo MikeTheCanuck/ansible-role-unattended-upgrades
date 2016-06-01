@@ -11,7 +11,7 @@
 
 - name: create APT auto-upgrades configuration
   copy: >
-    src=auto-upgrades dest=/etc/apt/apt.conf.d/20auto-upgrades
+    src=auto-upgrades dest=/etc/apt/apt.conf.d/02periodic
     owner=root group=root mode=0644
 
 - name: create unattended-upgrades configuration
