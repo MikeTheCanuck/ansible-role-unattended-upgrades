@@ -2,3 +2,4 @@
 - hosts: all
   roles:
     - ansible-role-unattended-upgrades
+  sudo: true
